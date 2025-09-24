@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import ProductCard from './components/productCard'
-
+import HomePage from './pages/homePage'
+import AdminPage from './pages/adminPage'
+import TestPage from './pages/test'
+import LoginPage from './pages/loginPage'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -41,16 +45,22 @@ function App() {
 
      </> */
 
-     <BrowserRouter>
-      <div className="w-full h-[100vh] bg-red-900">
-        <Routes>
-          <Route path="/" element={<h1>Home page</h1>} />
-          <Route path="/register" element={<h1>Register Page</h1>} />
-          <Route path="/admin" element={<h1>Admin Page</h1>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
-  )
+     
+	<BrowserRouter>
+			<div className="w-full h-[100vh] ">
+
+        <Toaster position="top-center"/>
+				<Routes path="/">
+					<Route path="/*" element={<HomePage/>}/>
+					<Route path="/register" element={<h1>Register page</h1>} />
+					<Route path="/admin/*" element={<AdminPage/>} />
+					<Route path="/test" element={<TestPage/>}/>			 
+          <Route path="/login" element={<LoginPage/>} />
+				</Routes>
+
+			</div>
+		</BrowserRouter>
+	);
 }
 
-export default App
+export default App;
