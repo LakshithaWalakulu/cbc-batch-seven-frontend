@@ -5,7 +5,8 @@ import { FaRegEdit } from "react-icons/fa";
 import { CiCirclePlus } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import { Loader } from "../../components/loader";
+import Loader from "../../components/loader";
+
 
 // ... (ProductDeleteConfirm component remains the same)
 function ProductDeleteConfirm(props){	
@@ -26,7 +27,7 @@ function ProductDeleteConfirm(props){
                 toast.success("Product deleted successfully");
                 refresh();
             }).catch(() => {
-                toast.error("Failed to delete product");
+                toast.error("Failed to delete product");S
             })
     }
 
@@ -48,6 +49,7 @@ function ProductDeleteConfirm(props){
             </div>
     </div>)
 }
+
 
 
 export default function AdminProductPage() {

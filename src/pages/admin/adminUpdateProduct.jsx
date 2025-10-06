@@ -12,7 +12,7 @@ export default function UpdateProductPage() {
   // FIX 1: Use .join() to convert the array to a string
   const [altNames, setAltNames] = useState(location.state.altNames.join(", "));
   const [description, setDescription] = useState(location.state.description);
-  const [images, setImages] = useState([]);
+  const [image, setImages] = useState([]);
   const [price, setPrice] = useState(location.state.price);
   const [labelPrice, setLabelPrice] = useState(location.state.labelPrice);
   const [category, setCategory] = useState(location.state.category);
@@ -29,7 +29,7 @@ export default function UpdateProductPage() {
     }
 
     try {
-      const promises = images.map((file) => mediaUpload(file));
+      const promises = image.map((file) => mediaUpload(file));
       let urls = await Promise.all(promises);
 
       if (urls.length === 0) {

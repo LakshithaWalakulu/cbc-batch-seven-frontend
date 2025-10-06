@@ -8,6 +8,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -56,6 +57,8 @@ function App() {
 					<Route path="/admin/*" element={<AdminPage/>} />
 					<Route path="/test" element={<TestPage/>}/>			 
           <Route path="/login" element={<LoginPage/>} />
+         
+
 				</Routes>
 
 			</div>

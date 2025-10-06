@@ -9,11 +9,11 @@ export default function AdminAddNewProduct() {
   const [name, setName] = useState("");
   const [altNames, setAltNames] = useState("");
   const [description, setDescription] = useState("");
-  const [images, setImages] = useState([]);
-  const [price, setPrice] = useState(0);
-  const [labelPrice, setLabelPrice] = useState(0);
+  const [image, setImages] = useState([]);
+  const [price, setPrice] = useState();
+  const [labelPrice, setLabelPrice] = useState();
   const [category, setCategory] = useState("cream");
-  const [stock, setStock] = useState(0);
+  const [stock, setStock] = useState();
 
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export default function AdminAddNewProduct() {
     // Use a single try...catch block for the entire process
     try {
       // 1. Upload images first
-      const promises = images.map((file) => mediaUpload(file));
+      const promises = image.map((file) => mediaUpload(file));
       const imageLinks = await Promise.all(promises);
 
       // 2. Prepare product data
@@ -125,6 +125,13 @@ export default function AdminAddNewProduct() {
             placeholder="Label Price"
             className="flex-1 border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition"
           />
+           <input
+          value={stock}
+          type="number"
+          onChange={(e) => setStock(e.target.value)}
+          placeholder="stock"
+          className="border border-gray-200 rounded-md px-3 py-2 w-full focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent resize-none transition"
+        />
         </div>
 
         <select

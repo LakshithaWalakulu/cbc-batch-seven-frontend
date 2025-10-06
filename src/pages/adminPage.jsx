@@ -14,7 +14,7 @@ import UpdateProductPage from "./admin/adminUpdateProduct";
 export default function AdminPage(){
     return(
         <div className="w-full h-full bg-primary flex p-2">
-            <div className="w-[300px] h-full items-center flex flex-col gap-[20px]">
+            <div className="w-[300px] h-full items-center flex flex-col gap-[20px] ">
                 <div className ="w-[90%] h-[60px] bg-accent flex flex-row  items-center  rounded-2xl text-white mb-[20px] ">
                  <img src="/logo.png" alt="Crystal Beauty Clear" className="h-[70px]"/>
                  <span className="text-white  text-xl ml-10">
@@ -57,4 +57,5 @@ export default function AdminPage(){
             </div>
         </div>
     )
+    
 }
