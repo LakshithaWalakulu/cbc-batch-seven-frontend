@@ -128,6 +128,14 @@ export default function UpdateProductPage() {
             placeholder="Label Price"
             className="flex-1 border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition"
           />
+
+            <input
+            type="number"
+            value={stock}
+            onChange={(e) => setStock(Number(e.target.value))}
+            placeholder="stock"
+            className="flex-1 border border-gray-200 rounded-md px-3 py-2 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition"
+          />
         </div>
 
         <select

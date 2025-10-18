@@ -1,0 +1,42 @@
+/* {Array.isArray(orders) && orders.map((item) => {
+                
+									return (
+										<tr
+											key={item.orderID}
+											className="odd:bg-white even:bg-primary hover:bg-accent/5 transition-colors"
+                                            onClick={()=>{
+                                                setSelectedOrder(item);
+                                                setIsModalOpen(true);
+                                            }}
+										>
+											
+											<td className="px-4 py-3 font-mono text-sm text-secondary/80">
+												{item.orderID}
+											</td>
+											<td className="px-4 py-3 font-medium text-secondary">
+												{item.items.length} items
+											</td>
+											<td className="px-4 py-3 font-medium text-secondary">
+												{item.customerName}
+											</td>
+											<td className="px-4 py-3 font-medium text-secondary">
+												{item.email}
+											</td>
+											<td className="px-4 py-3 text-secondary/70">
+												{item.phone}
+											</td>
+											<td className="px-4 py-3">
+												{item.address}
+											</td>
+											<td className="px-4 py-3">
+												{`LKR ${item.total.toFixed(2)}`}
+											</td>
+                                            <td className="px-4 py-3 text-center">
+                                                {item.status}
+                                            </td>
+                                            <td className="px-4 py-3">
+                                                {new Date(item.date).toLocaleDateString()}
+                                            </td>
+										</tr>
+									);
+								})} */

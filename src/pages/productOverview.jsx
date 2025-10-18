@@ -2,15 +2,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loader from "../components/loader";
 import ImageSlider from "../components/imageSlider";
+import { addToCart } from "../utils/cart";
+import CheckoutPage from "./checkOut";
+import { Link } from "react-router-dom";
 
 export default function ProductOverview() {
   const params = useParams();
   const [status, setStatus] = useState("loading"); // "loading", "success", "error"
   const [product, setProduct] = useState(null);
+ 
 
+  
   useEffect(() => {
     axios
       .get(import.meta.env.VITE_API_URL + "/api/products/" + params.id)
@@ -84,12 +89,23 @@ export default function ProductOverview() {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <button className="flex-1 py-3 bg-accent text-white font-semibold rounded-lg shadow hover:bg-accent/80 transition-colors duration-300">
+              <button className="flex-1 py-3 bg-accent text-white font-semibold rounded-lg shadow hover:bg-accent/80 transition-colors duration-300"
+			   onClick={()=>{
+				addToCart(product,1)
+				toast.success("Added to cart")
+			   }}>
                 Add to Cart
               </button>
-              <button className="flex-1 py-3 border border-accent text-accent font-semibold rounded-lg hover:bg-accent hover:text-white transition-colors duration-300">
-                Buy Now
-              </button>
+               <Link to="/checkout" state={[{
+								image : product.image[0],
+								productID : product.productID,
+								name : product.name,
+								price : product.price,
+								labelPrice : product.labelPrice,
+								quantity : 1
+							}]} className="w-[50%] flex justify-center items-center text-center h-full border border-accent text-accent font-semibold hover:bg-accent hover:text-white"
+							>Buy Now</Link>
+
             </div>
           </div>
         </div>
